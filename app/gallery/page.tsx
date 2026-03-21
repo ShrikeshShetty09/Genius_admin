@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Trash2, ChevronUp, ChevronDown, Image as ImageIcon, Video } from "lucide-react";
+import AdminHeader from "../components/AdminHeader";
 
 type GalleryItem = {
   id: number;
@@ -135,18 +136,7 @@ export default function GalleryAdminPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="font-bold text-gray-900">Admin Panel</div>
-          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-            <a className="text-xs sm:text-sm text-blue-700 hover:underline" href="/activities">Activities</a>
-            <a className="text-xs sm:text-sm text-blue-700 hover:underline" href="/results">Results</a>
-            <a className="text-xs sm:text-sm text-blue-700 hover:underline" href="/gallery">Gallery</a>
-            <a className="text-xs sm:text-sm text-blue-700 hover:underline" href="/quick-needs">Quick Needs</a>
-            <button onClick={logout} className="text-xs sm:text-sm rounded-md border px-2 sm:px-3 py-1 hover:bg-gray-50">Logout</button>
-          </div>
-        </div>
-      </header>
+      <AdminHeader onLogout={logout} />
 
       <main className="max-w-6xl mx-auto px-4 py-6">
         <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Gallery</h1>
