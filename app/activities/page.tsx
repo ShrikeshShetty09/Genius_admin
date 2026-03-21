@@ -252,18 +252,18 @@ export default function ActivitiesAdminPage() {
       <header className="bg-white border-b">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="font-bold text-gray-900">Admin Panel</div>
-          <div className="flex items-center gap-3">
-            <a className="text-sm text-blue-700 hover:underline" href="/activities">Activities</a>
-            <a className="text-sm text-blue-700 hover:underline" href="/results">Results</a>
-            <a className="text-sm text-blue-700 hover:underline" href="/gallery">Gallery</a>
-            <a className="text-sm text-blue-700 hover:underline" href="/quick-needs">Quick Needs</a>
-            <button onClick={logout} className="text-sm rounded-md border px-3 py-1.5 hover:bg-gray-50">Logout</button>
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+            <a className="text-xs sm:text-sm text-blue-700 hover:underline" href="/activities">Activities</a>
+            <a className="text-xs sm:text-sm text-blue-700 hover:underline" href="/results">Results</a>
+            <a className="text-xs sm:text-sm text-blue-700 hover:underline" href="/gallery">Gallery</a>
+            <a className="text-xs sm:text-sm text-blue-700 hover:underline" href="/quick-needs">Quick Needs</a>
+            <button onClick={logout} className="text-xs sm:text-sm rounded-md border px-2 sm:px-3 py-1 hover:bg-gray-50">Logout</button>
           </div>
         </div>
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-6">
-        <h1 className="text-2xl font-bold text-gray-900">Activities</h1>
+        <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Activities</h1>
         <p className="text-sm text-gray-600 mt-1">Create, edit, and manage activity media.</p>
 
         {error && <div className="mt-4 rounded-lg bg-red-50 border border-red-200 p-3 text-sm text-red-700">{error}</div>}

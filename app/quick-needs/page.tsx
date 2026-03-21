@@ -159,18 +159,18 @@ export default function QuickNeedsAdminPage() {
       <header className="bg-white border-b">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="font-bold text-gray-900">Admin Panel</div>
-          <div className="flex items-center gap-3">
-            <a className="text-sm text-blue-700 hover:underline" href="/activities">Activities</a>
-            <a className="text-sm text-blue-700 hover:underline" href="/results">Results</a>
-            <a className="text-sm text-blue-700 hover:underline" href="/gallery">Gallery</a>
-            <a className="text-sm text-blue-700 hover:underline" href="/quick-needs">Quick Needs</a>
-            <button onClick={logout} className="text-sm rounded-md border px-3 py-1.5 hover:bg-gray-50">Logout</button>
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+            <a className="text-xs sm:text-sm text-blue-700 hover:underline" href="/activities">Activities</a>
+            <a className="text-xs sm:text-sm text-blue-700 hover:underline" href="/results">Results</a>
+            <a className="text-xs sm:text-sm text-blue-700 hover:underline" href="/gallery">Gallery</a>
+            <a className="text-xs sm:text-sm text-blue-700 hover:underline" href="/quick-needs">Quick Needs</a>
+            <button onClick={logout} className="text-xs sm:text-sm rounded-md border px-2 sm:px-3 py-1 hover:bg-gray-50">Logout</button>
           </div>
         </div>
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-6">
-        <h1 className="text-2xl font-bold text-gray-900">Quick Needs</h1>
+        <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Quick Needs</h1>
         <p className="text-sm text-gray-600 mt-1">Create promotional taglines and popup content for your website.</p>
 
         {error && <div className="mt-4 rounded-lg bg-red-50 border border-red-200 p-3 text-sm text-red-700">{error}</div>}
@@ -290,9 +290,9 @@ export default function QuickNeedsAdminPage() {
                       active ? "border-l-green-500" : item.is_active ? "border-l-yellow-500" : "border-l-gray-300"
                     }`}
                   >
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
+                    <div className="flex items-start justify-between gap-2 sm:gap-4 flex-col sm:flex-row">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-2 flex-wrap">
                           {item.type === "tagline" ? (
                             <Type className="w-4 h-4 text-blue-600" />
                           ) : item.type === "image" ? (
@@ -314,11 +314,11 @@ export default function QuickNeedsAdminPage() {
                           </span>
                         </div>
                         {item.type === "tagline" ? (
-                          <p className="text-gray-900 font-medium">{item.content}</p>
+                          <p className="text-gray-900 font-medium text-sm sm:text-base">{item.content}</p>
                         ) : (
                           <a
                             href={item.media_url || "#"}
-                            className="text-blue-600 hover:underline text-sm truncate block"
+                            className="text-blue-600 hover:underline text-xs sm:text-sm truncate block"
                             target="_blank"
                             rel="noreferrer"
                           >
@@ -329,10 +329,10 @@ export default function QuickNeedsAdminPage() {
                           {new Date(item.start_date).toLocaleDateString()} - {new Date(item.end_date).toLocaleDateString()}
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-shrink-0">
                         <button
                           onClick={() => toggleActive(item.id, item.is_active)}
-                          className={`rounded-md px-3 py-1.5 text-sm font-medium ${
+                          className={`rounded-md px-2 sm:px-3 py-1.5 text-xs sm:text-sm font-medium ${
                             item.is_active
                               ? "bg-yellow-100 text-yellow-700 hover:bg-yellow-200"
                               : "bg-green-100 text-green-700 hover:bg-green-200"
@@ -341,20 +341,20 @@ export default function QuickNeedsAdminPage() {
                         >
                           {item.is_active ? (
                             <span className="flex items-center gap-1">
-                              <Pause className="w-4 h-4" /> Stop
+                              <Pause className="w-3 h-3 sm:w-4 sm:h-4" /> Stop
                             </span>
                           ) : (
                             <span className="flex items-center gap-1">
-                              <Play className="w-4 h-4" /> Start
+                              <Play className="w-3 h-3 sm:w-4 sm:h-4" /> Start
                             </span>
                           )}
                         </button>
                         <button
                           onClick={() => deleteItem(item.id)}
-                          className="rounded-md border border-red-200 text-red-700 px-3 py-1.5 hover:bg-red-50"
+                          className="rounded-md border border-red-200 text-red-700 px-2 sm:px-3 py-1.5 hover:bg-red-50"
                           title="Delete"
                         >
-                          <Trash2 className="w-4 h-4" />
+                          <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
                         </button>
                       </div>
                     </div>

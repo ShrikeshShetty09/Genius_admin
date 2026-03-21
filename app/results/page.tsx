@@ -130,18 +130,18 @@ export default function ResultsAdminPage() {
       <header className="bg-white border-b">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="font-bold text-gray-900">Admin Panel</div>
-          <div className="flex items-center gap-3">
-            <a className="text-sm text-blue-700 hover:underline" href="/activities">Activities</a>
-            <a className="text-sm text-blue-700 hover:underline" href="/results">Results</a>
-            <a className="text-sm text-blue-700 hover:underline" href="/gallery">Gallery</a>
-            <a className="text-sm text-blue-700 hover:underline" href="/quick-needs">Quick Needs</a>
-            <button onClick={logout} className="text-sm rounded-md border px-3 py-1.5 hover:bg-gray-50">Logout</button>
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+            <a className="text-xs sm:text-sm text-blue-700 hover:underline" href="/activities">Activities</a>
+            <a className="text-xs sm:text-sm text-blue-700 hover:underline" href="/results">Results</a>
+            <a className="text-xs sm:text-sm text-blue-700 hover:underline" href="/gallery">Gallery</a>
+            <a className="text-xs sm:text-sm text-blue-700 hover:underline" href="/quick-needs">Quick Needs</a>
+            <button onClick={logout} className="text-xs sm:text-sm rounded-md border px-2 sm:px-3 py-1 hover:bg-gray-50">Logout</button>
           </div>
         </div>
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-6">
-        <h1 className="text-2xl font-bold text-gray-900">Results</h1>
+        <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Results</h1>
         <p className="text-sm text-gray-600 mt-1">Manage topper images shown on the website.</p>
 
         {error && <div className="mt-4 rounded-lg bg-red-50 border border-red-200 p-3 text-sm text-red-700">{error}</div>}
@@ -195,14 +195,14 @@ export default function ResultsAdminPage() {
           ) : (
             <div className="mt-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
               {allImages.map((img, index) => (
-                <div key={img.id} className="bg-white rounded-xl shadow border border-gray-100 overflow-hidden group">
+                <div key={img.id} className="bg-white rounded-xl shadow border border-gray-100 overflow-hidden">
                   <div className="relative">
                     <img src={img.url} alt="" className="w-full h-32 object-cover" />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                    <div className="absolute top-2 right-2 flex gap-1">
                       <button
                         onClick={() => moveImage(img.id, "up")}
                         disabled={index === 0}
-                        className="bg-white/90 rounded p-1 hover:bg-white disabled:opacity-50"
+                        className="bg-white/90 rounded p-1 hover:bg-white disabled:opacity-50 shadow"
                         title="Move up"
                       >
                         <ChevronUp className="w-4 h-4" />
@@ -210,14 +210,14 @@ export default function ResultsAdminPage() {
                       <button
                         onClick={() => moveImage(img.id, "down")}
                         disabled={index === allImages.length - 1}
-                        className="bg-white/90 rounded p-1 hover:bg-white disabled:opacity-50"
+                        className="bg-white/90 rounded p-1 hover:bg-white disabled:opacity-50 shadow"
                         title="Move down"
                       >
                         <ChevronDown className="w-4 h-4" />
                       </button>
                       <button
                         onClick={() => deleteImage(img.id)}
-                        className="bg-red-500 text-white rounded p-1 hover:bg-red-600"
+                        className="bg-red-500/90 rounded p-1 hover:bg-red-500 text-white shadow"
                         title="Delete"
                       >
                         <Trash2 className="w-4 h-4" />
