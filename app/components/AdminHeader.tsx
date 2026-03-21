@@ -12,6 +12,7 @@ const navItems: NavItem[] = [
   { label: "Activities", href: "/activities" },
   { label: "Results", href: "/results" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Student Feedback", href: "/student-feedback" },
   { label: "Quick Needs", href: "/quick-needs" },
 ];
 
